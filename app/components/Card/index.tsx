@@ -1,7 +1,6 @@
 import {Local} from "@/types/types";
 import styles from "./Card.module.css";
 import Link from "next/link";
-import DestinoDetalhe from "@/app/pages/destinos/[slug]";
 
 type Props = {
 
@@ -17,7 +16,7 @@ const Card = ({Local: local} : Props) => {
             <div>
                 <h3 className={styles.card__title}>{title}</h3>
                 <p className={styles.card__description}>{description}</p>
-                <Link href={`/pages/destinos/${[DestinoDetalhe]}`}>Detalhes</Link>
+                <Link className={styles.button} href={`/pages/destinos/${local.slug}`}>Detalhes</Link>
             </div>
         </div>
     );

@@ -1,30 +1,31 @@
 "use client";
 
-import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { locais } from "@/locais";
 import Link from "next/link";
-import Paragraph from "@/app/components/Paragraph";
+import Title from "@/app/components/Title";
+import styles from "./DestinoDetalhe.module.css"
 
 export default function DestinoDetalhe() {
-    const router = useRouter();
-    //const { slug } = router.query;
+    const params = useParams();
+    const slug = params.slug as string;
 
     const destino = locais.find((id) => id.slug === slug);
 
     if (!destino) {
         return (
-            <p>
+            <div className={styles.container}>
                 <p>Destino não encontrado.</p>
                 <Link href="/destinos">Voltar</Link>
-            </p>
+            </div>
         );
     }
 
     return (
-        <p>
-            <h2>{destino.title}</h2>
+        <div className={styles.container}>
+            <Title title={`${destino.title}`} />
 
-            <img
+            <img className={styles.img}
                 src={destino.image}
                 alt={destino.title}
                 style={{ width: "100%", maxWidth: "500px" }}
@@ -32,7 +33,7 @@ export default function DestinoDetalhe() {
 
             <p>{destino.description}</p>
 
-            <Link href="/destinos">← Voltar para lista</Link>
-        </p>
+            <Link className={styles.back} href="/pages/destinos">← Voltar para lista</Link>
+        </div>
     );
 }
