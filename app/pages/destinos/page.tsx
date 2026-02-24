@@ -2,7 +2,7 @@ import Title from "@/app/components/Title";
 import Grid from "@/app/components/Grid";
 import {locais} from "@/locais";
 
-const FilmesEmAlta = () => {
+const Destinos = () => {
 
     return (
         <>
@@ -12,4 +12,4 @@ const FilmesEmAlta = () => {
     )
 }
 
-export default FilmesEmAlta;
+export default Destinos;
